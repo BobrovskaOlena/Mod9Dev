@@ -1,3 +1,7 @@
+import org.thymeleaf.TemplateEngine;
+import org.thymeleaf.context.Context;
+import org.thymeleaf.templateresolver.FileTemplateResolver;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,14 +16,29 @@ import java.time.format.DateTimeFormatter;
 import java.util.Optional;
 
 
-@WebServlet(value = "/time")
-public class TimeServlet  extends HttpServlet {
+@WebServlet(value = "/thymeleaf")
+public class ThymeleafServlet extends HttpServlet {
+    private TemplateEngine templateEngine;
+
+    @Override
+    public void init() throws ServletException {
+        super.init();
+        templateEngine = new TemplateEngine();
+
+        FileTemplateResolver templateResolver = new FileTemplateResolver();
+        templateResolver.setPrefix("src/main/webapp/WEB-INF/templates/");
+        templateResolver.setSuffix(".html");
+        templateResolver.setTemplateMode("HTML5");
+        templateResolver.setOrder(templateEngine.getTemplateResolvers().size());
+        templateResolver.setCacheable(false);
+        templateEngine.addTemplateResolver(templateResolver);
+    }
+
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws  IOException, ServletException {
 
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
-        out.print("<html><body>");
-        out.print("<h3>Hello! This is Time Servlet!</h3>");
+        Context context = new Context();
         response.setHeader("Refresh", "1");
 
         String timeZoneParam = request.getParameter("timezone");
@@ -29,10 +48,12 @@ public class TimeServlet  extends HttpServlet {
         ZoneOffset currentOffset = currentTime.getOffset();
         String formattedTime = currentTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss z"));
 
-        out.write("<p>" + formattedTime + " (" + formatOffset(currentOffset) + ")</p>");
-        out.print("<h4>Current Timezone: " + zoneId + "</h4>");
+        context.setVariable("formattedTime", formattedTime);
+        context.setVariable("currentOffset", formatOffset(currentOffset));
+        context.setVariable("currentZone", zoneId.toString());
 
-        out.print("</body></html>");
+        String output = templateEngine.process("time_template", context);
+        out.write(output);
         out.close();
     }
 
