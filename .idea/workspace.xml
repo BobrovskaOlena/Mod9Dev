@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="29a4d8f8-808f-4234-a8fd-d2cdc83a4299" name="Changes" comment="">
+    <list default="true" id="29a4d8f8-808f-4234-a8fd-d2cdc83a4299" name="Changes" comment="1">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TimeServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ThymeleafServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TimeZoneValidateFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TimeZoneValidateFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/time_template.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/time_template.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ThymeleafServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TimeServlet.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,8 +42,8 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0"
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -62,9 +60,19 @@
       <option name="presentableId" value="Default" />
       <updated>1687878620405</updated>
     </task>
+    <task id="LOCAL-00001" summary="1">
+      <created>1687890571646</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1687890571646</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="1" />
+    <option name="LAST_COMMIT_MESSAGE" value="1" />
   </component>
 </project>

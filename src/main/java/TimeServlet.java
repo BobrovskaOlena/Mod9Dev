@@ -16,8 +16,8 @@ import java.time.format.DateTimeFormatter;
 import java.util.Optional;
 
 
-@WebServlet(value = "/thymeleaf")
-public class ThymeleafServlet extends HttpServlet {
+@WebServlet(value = "/time")
+public class TimeServlet extends HttpServlet {
     private TemplateEngine templateEngine;
 
     @Override
@@ -42,7 +42,7 @@ public class ThymeleafServlet extends HttpServlet {
         response.setHeader("Refresh", "1");
 
         String timeZoneParam = request.getParameter("timezone");
-        ZoneId zoneId = parseTimeZone(timeZoneParam).orElse(ZoneId.of("UTC+3"));
+        ZoneId zoneId = parseTimeZone(timeZoneParam).orElse(ZoneId.of("UTC"));
 
         ZonedDateTime currentTime = ZonedDateTime.now(zoneId);
         ZoneOffset currentOffset = currentTime.getOffset();
